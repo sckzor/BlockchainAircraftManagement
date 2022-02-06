@@ -1,0 +1,38 @@
+.main-container {
+  padding: 0.2em;
+  margin: auto;
+  width: 80%;
+}
+
+.plane-container {
+  margin: auto;
+  width: 60%;
+  float: left;
+}
+
+.plane-container img {
+  width: 100%
+}
+
+.message-container {
+  box-sizing: border-box;
+  white-space: normal;
+}
+
+.block-container {
+  box-sizing: border-box;
+  white-space: normal;
+  width: 39.9%;
+  float: right;
+}
+
+pre {
+  margin-left: 0.5em;
+  padding-left: 0.5em;
+  border-radius: 0.5em;
+  background: #e6e6e6;
+}
+
+textarea {
+    resize: none;
+}

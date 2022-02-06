@@ -1,0 +1,57 @@
+{{define "layout"}}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="static/style/style.css">
+    <title> Blockchain </title>
+  </head>
+  
+  <body>
+      <div class="main-container"> 
+  <div class="title-container">
+    <h1> Air plane demo for redundant logging and communication using blockchain </h1>
+    <hr>
+  </div>
+  <div class="plane-container">
+    <img class="plane" src="static/img/plane.jpg"></img>
+  </div>
+  <div class="message-container">
+    <h2> Send a message: </h2>
+    <form action="/message" method="POST">
+      <label for="node"> Message Sender:</label><br>
+
+      <select name="node" id="node">
+          {{ range .NodesList }} <option value="{{ .NodePart.PartName }}"> {{ .NodePart.PartName }} </option> {{ end }}
+      </select><br>
+
+      <label for="severity"> Message Severity:</label><br>
+      <select name="severity" id="severity">
+          <option value="error"> Error Message </option>
+          <option value="info"> Info Message </option>
+          <option value="attach"> Attach Message </option>
+      </select><br>
+
+      <label for="message"> Message Body:</label><br>
+      <textarea id="message" name="message" rows="10" cols="105">  </textarea> <br>
+      
+      <input type="submit" value="Send">
+      <hr>
+    </form>
+  </div>
+  <div class="block-container">
+    <form action="/blocks" method="POST">
+      <select name="node" id="node">
+          {{ range .NodesList }} <option value="{{ .NodePart.PartName }}"> {{ .NodePart.PartName }} </option> {{ end }}
+      </select><br>
+      <input type="submit" value="Get Blockchain">
+    </form>
+    
+    <pre>
+      <code>
+        {{ .LedgerDump }} </code>
+    </pre>
+  </div>
+</div>
+
+{{ end }}
