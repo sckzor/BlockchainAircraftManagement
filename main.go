@@ -208,7 +208,7 @@ func (n *Node) TransmitBlock(node *Node, message *Message) { // A node can never
     block := n.NodePart.CreateBlock(message)
     n.BlockChain.AddBlock(block)
     node.BlockRequestChannel <- *n.BlockChain.HeadBlock
-    time.Sleep(10 * time.Millisecond) // The Hack that will make the thing work if everything else fails ;)
+    time.Sleep(10 * time.Millisecond)
 }
 
 func (n *Node) StringifyLedger() string {
